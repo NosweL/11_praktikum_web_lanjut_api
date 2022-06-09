@@ -22,9 +22,10 @@ abstract class ApiRequest extends FormRequest
     {
         throw new HttpResponseException($this->apiError(
             $validator->errors(),
-            Response::HTTP_UNPROCESSABLE_ENTITY,
+            Response::HTTP_UNPROCESSABLE_ENTITY
         ));
     }
+
     protected function failedAuthorization()
     {
         throw new HttpResponseException($this->apiError(
@@ -32,14 +33,4 @@ abstract class ApiRequest extends FormRequest
             Response::HTTP_UNAUTHORIZED
         ));
     }
-    public function authorize()
-    {
-        return false;
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
 }

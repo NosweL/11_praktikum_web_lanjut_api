@@ -11,12 +11,18 @@ class RegisterRequest extends FormRequest
         return true;
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+
     public function rules()
     {
         return [
-            'name' => 'required|string|max:225',
-            'email' => 'required|string|email|max:225|unique:users',
-            'password' => 'required|string|min:8'
+            'name'      => 'required|string|max:255',
+            'email'     => 'required|string|email|max:255:unique:users',
+            'password'  => 'required|string|min:8'
         ];
     }
 }
